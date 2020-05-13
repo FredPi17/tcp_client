@@ -1,39 +1,27 @@
-## How to use K6
+# How to use artillery
 
-**_Install it:_**
+# Install
 
-``sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61``
+Run this command: 
 
-``echo "deb https://dl.bintray.com/loadimpact/deb stable main" | sudo tee -a /etc/apt/sources.list``
+`npm install -g artillery`
 
-``sudo apt-get update``
+# Use it
 
-`` sudo apt-get install k6``
+Test it with the command line interface like this: 
 
-**_Create a config file:_** 
+`artillery quick --count 10 -n 20 https://artillery.io/`
 
-For documentation on how to create options of a  configuration file, follow this [link](https://k6.io/docs/using-k6/options)
+Or with a specific configuration file: 
 
+`artillery run script.yml` 
 
-In this case I created a script.js file that will call a route on my local test API. 
+# Pros
 
-**_Run K6_**
+- easy to use and to install
 
-* Then in the terminal run this command: 
-    * if you want to get results just on the terminal:
-        - ``k6 run script.js``
-    * if you want to export result on influxdb:
-        -  ``k6 run --out influxdb=http://host:port/database_name script.js``
-    * if you want to export result as a json file: 
-        - ``k6 run --summary-export=json_file.json``
-    * it's also possible to combine json export and influxdb: 
-        - ``k6 run --summary-export=export.json script.js --out influxdb=http://host:port/database_name script.js ``
+# Cons
 
-**_Pros_**
-
-- the simplicity of the installation
-- easy execution 
-- fast data exporting to influxdb if used
-
-**_Cons_**
+- limited functionalities 
+- limited documentation
 
